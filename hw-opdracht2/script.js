@@ -4,35 +4,41 @@ function zoekUit() {
     var streaming = document.getElementById("streaming").value;
 
     var abonnement ="eenvoudig";
-//als je met meer dan 2 personen kijkt en meer dan 3 uur per dag, dan is het beste abonnement familie
-//pseudocode: als (aantal==3 en duur>3 dan abonnement ="familie")
-var getal1= 3;
+    //pseudocode: als (aantal==3 en duur>3 dan abonnement ="familie")/als je met meer dan 2 personen kijkt en meer dan 3 uur per dag, dan is het beste abonnement familie
+    //
 
-if(aantal==getal1){
-    function onclick(){
-        var ingevuld_getal = document.getElementById("aantal").value;
-    
-        if (ingevuld_getal >getal1) {
-            document.getElementById("resulaat").style.backgroundColor= 'famillie';
-        }
-        if (ingevuld_getal>getal1) {
-            document.getElementById("resultaat").style.backgroundColor = 'famillie';
-        }
+    if ( aantal ==3 && duur > 3 ) {
+        abonnement = "familie";
+    }    
     
 
 
 
 
 
-//als je met 2 of meer personen kijkt of al een abonnement hebt, dan is het beste abonnement uitgebreid
-//pseudocode: 
+    //als je met 2 of meer personen kijkt of al een abonnement hebt, dan is het beste abonnement uitgebreid
+    //pseudocode: als(aantal > 2 en streaming==ja dan = "uitgebreid")
+    if(aantal>2 || streaming== true){
+        abonnement= "uitgebreid"
+    }
 
-//als je met 2 personen kijkt of meer dan 4 uur per dag dan is het abonnement standaard
-//pseudocode: 
+    //als je met 2 personen kijkt of meer dan 4 uur per dag dan is het abonnement standaard
+    //pseudocode: 
 
-// als je met 1 persoon kijkt en 6 of meer uur per dag dan is het abonnement uitgebreid
-//pseudocode: 
+    if(aantal==2 || duur>4){
+        abonnement= "standaard"
+    }
 
 
-//toon het type abonnement op het scherm
+    // als je met 1 persoon kijkt en 6 of meer uur per dag dan is het abonnement uitgebreid
+    //pseudocode: 
 
+    if(aantal==1 && duur>=6 ){
+        abonnement= "uitgebreid"
+    }
+    
+    document.getElementById("resultaat").innerHTML = abonnement;
+
+    //toon het type abonnement op het scherm
+
+}
